@@ -72,16 +72,19 @@ BOOL CMedicalProjectApp::InitInstance()
 
 	CMedicalProjectDlg dlg;
 	m_pMainWnd = &dlg;
+	AfxInitRichEdit2();
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
 		// TODO:  在此放置处理何时用
 		//  “确定”来关闭对话框的代码
+		printf("IDOK");
 	}
 	else if (nResponse == IDCANCEL)
 	{
 		// TODO:  在此放置处理何时用
 		//  “取消”来关闭对话框的代码
+		printf("IDCANCEL");
 	}
 	else if (nResponse == -1)
 	{

@@ -72,6 +72,12 @@
     <ClInclude Include="ResultPair.h">
       <Filter>头文件\data</Filter>
     </ClInclude>
+    <ClInclude Include="ChineseResultDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EnglishResultDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MedicalProject.cpp">
@@ -92,6 +98,12 @@
     <ClCompile Include="Result.cpp">
       <Filter>源文件\data</Filter>
     </ClCompile>
+    <ClCompile Include="ChineseResultDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EnglishResultDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MedicalProject.rc">
@@ -99,13 +111,13 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\MedicalProject.rc2">
-      <Filter>资源文件</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="res\MedicalProject.ico">
       <Filter>资源文件</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\MedicalProject.rc2">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

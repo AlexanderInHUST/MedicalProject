@@ -102,7 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Answers.h" />
+    <ClInclude Include="ChineseResultDlg.h" />
     <ClInclude Include="Const.h" />
+    <ClInclude Include="EnglishResultDlg.h" />
     <ClInclude Include="FileHelper.h" />
     <ClInclude Include="MedicalProject.h" />
     <ClInclude Include="MedicalProjectDlg.h" />
@@ -114,6 +116,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Answers.cpp" />
+    <ClCompile Include="ChineseResultDlg.cpp" />
+    <ClCompile Include="EnglishResultDlg.cpp" />
     <ClCompile Include="FileHelper.cpp" />
     <ClCompile Include="MedicalProject.cpp" />
     <ClCompile Include="MedicalProjectDlg.cpp" />
@@ -127,12 +131,17 @@
     <ResourceCompile Include="MedicalProject.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\MedicalProject.rc2" />
+    <Image Include="res\MedicalProject.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\MedicalProject.ico" />
+    <None Include="res\MedicalProject.rc2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="MedicalProject.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

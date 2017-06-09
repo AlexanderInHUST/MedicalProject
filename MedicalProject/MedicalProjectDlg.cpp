@@ -1,4 +1,3 @@
-
 // MedicalProjectDlg.cpp : 实现文件
 //
 
@@ -149,4 +148,3 @@ HCURSOR CMedicalProjectDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
-
