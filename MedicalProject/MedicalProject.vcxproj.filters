@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\data">
+      <UniqueIdentifier>{85335327-c7a7-4d71-b243-90d61ecabec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\data">
+      <UniqueIdentifier>{9685d155-0079-40bd-9e24-0a063302189d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\global">
+      <UniqueIdentifier>{31af0e80-ab8b-440f-b7b9-7a2aea91c5f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\presenter">
+      <UniqueIdentifier>{cf570cb6-d78b-48c0-bcae-b2c25ad72cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\view">
+      <UniqueIdentifier>{dbb3a1ad-b7dc-4b81-bf6c-08eabead8e9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\global">
+      <UniqueIdentifier>{cf6625dc-621d-45ef-acc6-afcbe2074641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\presenter">
+      <UniqueIdentifier>{2111ff66-4b6b-4c06-9615-5f4d3adb772d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\view">
+      <UniqueIdentifier>{9328d64a-a2a5-4b9f-822d-2956b859b866}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MedicalProject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MedicalProjectDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Answers.h">
+      <Filter>头文件\data</Filter>
+    </ClInclude>
+    <ClInclude Include="Const.h">
+      <Filter>头文件\global</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHelper.h">
+      <Filter>头文件\presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="Result.h">
+      <Filter>头文件\data</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultPair.h">
+      <Filter>头文件\data</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MedicalProject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MedicalProjectDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Answers.cpp">
+      <Filter>源文件\data</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHelper.cpp">
+      <Filter>源文件\presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="Result.cpp">
+      <Filter>源文件\data</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MedicalProject.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\MedicalProject.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\MedicalProject.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
