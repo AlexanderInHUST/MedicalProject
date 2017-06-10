@@ -2,6 +2,8 @@
 #include "ResultPair.h"
 #include <algorithm>
 
+#pragma once
+
 using namespace std;
 
 class Result{

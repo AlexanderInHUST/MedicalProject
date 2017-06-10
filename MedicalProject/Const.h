@@ -4,4 +4,9 @@
 #define AW(b1, b2) answersWeight->at(b1)->at(b2)
 #define ASW(a1, a2, b1, b2)  AS(a1, a2) * AW(b1, b2);
 
-static int WIGHT_NUM[8] = { 4, 6, 6, 4, 4, 5, 5, 2 };
+#define GETB(a, b) map##a##c##b## = (CButton *)GetDlgItem(IDC_MA_P##a##_C##b##)
+#define SETBE(a, b, result) map##a##c##b##->EnableWindow(result)
+#define GETBE(a, b) map##a##c##b##->IsWindowEnabled()
+#define SETBC(a, b, result) map##a##c##b##->SetCheck(result)
+#define GETBC(a, b) map##a##c##b##->GetCheck()
+#define SETAS(a, b) aList->push_back((GETBC(a, b)))

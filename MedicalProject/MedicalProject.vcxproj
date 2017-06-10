@@ -108,6 +108,7 @@
     <ClInclude Include="FileHelper.h" />
     <ClInclude Include="MedicalProject.h" />
     <ClInclude Include="MedicalProjectDlg.h" />
+    <ClInclude Include="MedicalProjectDlg2.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="ResultPair.h" />
@@ -121,6 +122,7 @@
     <ClCompile Include="FileHelper.cpp" />
     <ClCompile Include="MedicalProject.cpp" />
     <ClCompile Include="MedicalProjectDlg.cpp" />
+    <ClCompile Include="MedicalProjectDlg2.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

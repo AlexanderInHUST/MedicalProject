@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Result.h"
 
+#pragma once
+
 using namespace std;
 
 class Answers {
