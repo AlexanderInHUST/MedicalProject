@@ -81,6 +81,9 @@
     <ClInclude Include="MedicalProjectDlg2.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ResultProvider.h">
+      <Filter>头文件\presenter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MedicalProject.cpp">
@@ -109,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="MedicalProjectDlg2.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultProvider.cpp">
+      <Filter>源文件\presenter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

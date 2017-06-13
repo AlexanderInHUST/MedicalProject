@@ -6,6 +6,7 @@
 
 #define DEFB(a, b) CButton * map##a##c##b
 #define GETB(a, b) map##a##c##b## = (CButton *)GetDlgItem(IDC_MA_P##a##_C##b##)
+#define GETB2(a, b) map##a##c##b## = (CButton *)GetDlgItem(IDC_MA7_P##a##_C##b##)
 
 #define SETBE(a, b, result) map##a##c##b##->EnableWindow(result)
 #define GETBE(a, b) map##a##c##b##->IsWindowEnabled()
