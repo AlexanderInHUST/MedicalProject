@@ -180,9 +180,6 @@ void CMedicalProjectDlg::OnBnClickedMaP1C1() {
 	if (GETBC(2, 3) == 0) {
 		SETBE(63, 1, false); SETBE(63, 2, false); SETBE(63, 3, false); SETBE(63, 4, false);
 	}
-	//SETBC(2, 1, false);
-	//SETBC(62, 1, false); SETBC(62, 2, false); SETBC(62, 3, false); SETBC(62, 4, false); SETBC(62, 5, false);
-	//SETBC(63, 1, false); SETBC(63, 2, false); SETBC(63, 3, false); SETBC(63, 4, false);
 }
 
 void CMedicalProjectDlg::OnBnClickedMaP1C2() {
@@ -194,9 +191,6 @@ void CMedicalProjectDlg::OnBnClickedMaP1C2() {
 	if (GETBC(2, 3) == 0) {
 		SETBE(63, 1, false); SETBE(63, 2, false); SETBE(63, 3, false); SETBE(63, 4, false);
 	}
-	//SETBC(2, 2, false);
-	//SETBC(61, 1, false); SETBC(61, 2, false); SETBC(61, 3, false); SETBC(61, 4, false);
-	//SETBC(63, 1, false); SETBC(63, 2, false); SETBC(63, 3, false); SETBC(63, 4, false);
 }
 
 void CMedicalProjectDlg::OnBnClickedMaP1C3() {
@@ -208,9 +202,6 @@ void CMedicalProjectDlg::OnBnClickedMaP1C3() {
 		SETBE(62, 1, false); SETBE(62, 2, false); SETBE(62, 3, false); SETBE(62, 4, false); SETBE(62, 5, false);
 	}
 	SETBE(63, 1, true); SETBE(63, 2, true); SETBE(63, 3, true); SETBE(63, 4, true);
-	//SETBC(2, 3, false);
-	//SETBC(61, 1, false); SETBC(61, 2, false); SETBC(61, 3, false); SETBC(61, 4, false);
-	//SETBC(62, 1, false); SETBC(62, 2, false); SETBC(62, 3, false); SETBC(62, 4, false); SETBC(62, 5, false);
 }
 
 
@@ -219,10 +210,6 @@ void CMedicalProjectDlg::OnBnClickedMaP1C4() {
 	SETBE(61, 1, false); SETBE(61, 2, false); SETBE(61, 3, false); SETBE(61, 4, false);
 	SETBE(62, 1, false); SETBE(62, 2, false); SETBE(62, 3, false); SETBE(62, 4, false); SETBE(62, 5, false);
 	SETBE(63, 1, false); SETBE(63, 2, false); SETBE(63, 3, false); SETBE(63, 4, false);
-	//SETBC(2, 4, false);
-	//SETBC(61, 1, false); SETBC(61, 2, false); SETBC(61, 3, false); SETBC(61, 4, false);
-	//SETBC(62, 1, false); SETBC(62, 2, false); SETBC(62, 3, false); SETBC(62, 4, false); SETBC(62, 5, false);
-	//SETBC(63, 1, false); SETBC(63, 2, false); SETBC(63, 3, false); SETBC(63, 4, false);
 }
 
 
