@@ -50,6 +50,10 @@ CMedicalProjectDlg::CMedicalProjectDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CMedicalProjectDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	this->answersList = NULL;
+	this->a61List = NULL;
+	this->a62List = NULL;
+	this->a63List = NULL;
 }
 
 void CMedicalProjectDlg::DoDataExchange(CDataExchange* pDX)
@@ -105,7 +109,6 @@ BOOL CMedicalProjectDlg::OnInitDialog()
 
 	// TODO:  在此添加额外的初始化代码
 
-	//map61c1 = (CButton *)GetDlgItem(IDC_MA_P61_C1);
 	GETB(1, 1); GETB(1, 2); GETB(1, 3); GETB(1, 4);
 	GETB(2, 1); GETB(2, 2); GETB(2, 3); GETB(2, 4);
 	GETB(3, 1); GETB(3, 2); GETB(3, 3);
@@ -118,6 +121,11 @@ BOOL CMedicalProjectDlg::OnInitDialog()
 	SETBE(61, 1, false); SETBE(61, 2, false); SETBE(61, 3, false); SETBE(61, 4, false);
 	SETBE(62, 1, false); SETBE(62, 2, false); SETBE(62, 3, false); SETBE(62, 4, false); SETBE(62, 5, false);
 	SETBE(63, 1, false); SETBE(63, 2, false); SETBE(63, 3, false); SETBE(63, 4, false);
+	
+	if (answersList != NULL) {
+		locateData();
+		recheckStatus();
+	}
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -287,4 +295,59 @@ void CMedicalProjectDlg::OnBnClickedMaNexBut() {
 	this->OnOK();
 	dlg2.setData(answersList, a61List, a62List, a63List);
 	dlg2.DoModal();
+}
+
+void CMedicalProjectDlg::locateData() {
+	SETBCF(1, 1); SETBCF(1, 2); SETBCF(1, 3); SETBCF(1, 4);
+	SETBCF(2, 1); SETBCF(2, 2); SETBCF(2, 3); SETBCF(2, 4);
+	SETBCF(3, 1); SETBCF(3, 2); SETBCF(3, 3);
+	SETBCF(4, 1); SETBCF(4, 2); SETBCF(4, 3); SETBCF(4, 4); SETBCF(4, 5); SETBCF(4, 6); SETBCF(4, 7); SETBCF(4, 8);
+	SETBCF(5, 1); SETBCF(5, 2); SETBCF(5, 3);
+
+	SETBC(61, 1, (a61List->at(0) == 1) ? true : false);
+	SETBC(61, 2, (a61List->at(1) == 1) ? true : false);
+	SETBC(61, 3, (a61List->at(2) == 1) ? true : false);
+	SETBC(61, 4, (a61List->at(3) == 1) ? true : false);
+
+	SETBC(62, 1, (a62List->at(0) == 1) ? true : false);
+	SETBC(62, 2, (a62List->at(1) == 1) ? true : false);
+	SETBC(62, 3, (a62List->at(2) == 1) ? true : false);
+	SETBC(62, 4, (a62List->at(3) == 1) ? true : false);
+	SETBC(62, 5, (a62List->at(4) == 1) ? true : false);
+
+	SETBC(63, 1, (a63List->at(0) == 1) ? true : false);
+	SETBC(63, 2, (a63List->at(1) == 1) ? true : false);
+	SETBC(63, 3, (a63List->at(2) == 1) ? true : false);
+	SETBC(63, 4, (a63List->at(3) == 1) ? true : false);
+}
+
+void CMedicalProjectDlg::setData(vector<vector<int> *> * answersList, vector<int> * a61List, vector<int> * a62List, vector<int> * a63List) {
+	this->answersList = answersList;
+	this->a61List = a61List;
+	this->a62List = a62List;
+	this->a63List = a63List;
+}
+
+void CMedicalProjectDlg::recheckStatus() {
+	if (GETBC(1, 1) == 1) {
+		OnBnClickedMaP1C1();
+	}
+	else if (GETBC(1, 2) == 1) {
+		OnBnClickedMaP1C2();
+	}
+	else if (GETBC(1, 3) == 1) {
+		OnBnClickedMaP1C3();
+	}
+	else if (GETBC(1, 4) == 1) {
+		OnBnClickedMaP1C4();
+	}
+	if (GETBC(2, 1) == 1) {
+		OnBnClickedMaP2C1();
+	}
+	if (GETBC(2, 2) == 1) {
+		OnBnClickedMaP2C2();
+	}
+	if (GETBC(2, 3) == 1) {
+		OnBnClickedMaP2C3();
+	}
 }

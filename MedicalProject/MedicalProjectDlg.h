@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "stdafx.h"
 #include "Const.h"
 #include "Answers.h"
 #include "MedicalProjectDlg2.h"
@@ -34,6 +35,11 @@ protected:
 	CButton * map62c1, * map62c2, * map62c3, * map62c4, * map62c5;
 	CButton * map63c1, * map63c2, * map63c3, * map63c4;
 
+	vector<vector<int> *> * answersList;
+	vector<int> * a61List;
+	vector<int> * a62List;
+	vector<int> * a63List;
+
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
@@ -51,4 +57,8 @@ public:
 	afx_msg void OnBnClickedMaP2C3();
 	afx_msg void OnBnClickedMaP2C4();
 	afx_msg void OnBnClickedMaNexBut();
+
+	void setData(vector<vector<int> *> * answersList, vector<int> * a61List, vector<int> * a62List, vector<int> * a63List);
+	void locateData();
+	void recheckStatus();
 };
