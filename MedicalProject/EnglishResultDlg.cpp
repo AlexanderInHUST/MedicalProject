@@ -27,6 +27,8 @@ void EnglishResultDlg::setData(ResultProvider * provider) {
 
 BOOL EnglishResultDlg::OnInitDialog() {
 	CDialogEx::OnInitDialog();
+	ModifyStyleEx(0, WS_EX_APPWINDOW);
+	ShowWindow(SW_SHOW);
 
 	left = (CStatic *)GetDlgItem(IDC_ENG_STA_LEFT);
 	right = (CStatic *)GetDlgItem(IDC_ENG_STA_RIGH);
@@ -164,6 +166,8 @@ BEGIN_MESSAGE_MAP(EnglishResultDlg, CDialogEx)
 	
 	ON_BN_CLICKED(IDC_ENG_BAK_BUT, &EnglishResultDlg::OnBnClickedEngBakBut)
 	ON_BN_CLICKED(IDC_ENG_EXIT_BUT, &EnglishResultDlg::OnBnClickedEngExitBut)
+	ON_WM_ERASEBKGND()
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -182,4 +186,26 @@ void EnglishResultDlg::OnBnClickedEngBakBut()
 void EnglishResultDlg::OnBnClickedEngExitBut()
 {
 	this->OnOK();
+}
+
+
+BOOL EnglishResultDlg::OnEraseBkgnd(CDC* pDC)
+{
+	CBrush back(RGB(255, 255, 228));
+	CBrush * pold = pDC->SelectObject(&back);
+	CRect rect;
+	pDC->GetClipBox(&rect);
+	pDC->PatBlt(rect.left, rect.top, rect.Width(), rect.Height(), PATCOPY);
+	pDC->SelectObject(&pold);
+	return TRUE;
+}
+
+
+HBRUSH EnglishResultDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	pDC->SetBkMode(TRANSPARENT);
+	pDC->SetBkColor(RGB(0, 0, 0));
+	return CreateSolidBrush(RGB(255, 255, 228));
 }

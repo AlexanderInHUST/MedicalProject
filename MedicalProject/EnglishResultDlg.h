@@ -48,4 +48,6 @@ public:
 	void setData(ResultProvider * provider);
 	afx_msg void OnBnClickedEngBakBut();
 	afx_msg void OnBnClickedEngExitBut();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

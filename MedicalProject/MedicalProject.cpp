@@ -73,6 +73,7 @@ BOOL CMedicalProjectApp::InitInstance()
 	CMedicalProjectDlg dlg;
 	m_pMainWnd = &dlg;
 	AfxInitRichEdit2();
+	SetDialogBkColor(RGB(255, 240, 0));
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
@@ -100,6 +101,6 @@ BOOL CMedicalProjectApp::InitInstance()
 
 	// 由于对话框已关闭，所以将返回 FALSE 以便退出应用程序，
 	//  而不是启动应用程序的消息泵。
-	return FALSE;
+	return TRUE;
 }
 

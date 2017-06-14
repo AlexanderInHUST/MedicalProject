@@ -28,6 +28,8 @@ void MedicalProjectChoDlg::DoDataExchange(CDataExchange* pDX)
 
 BOOL MedicalProjectChoDlg::OnInitDialog() {
 	CDialogEx::OnInitDialog();
+	ModifyStyleEx(0, WS_EX_APPWINDOW);
+	ShowWindow(SW_SHOW);
 	return TRUE;
 }
 
@@ -46,6 +48,8 @@ void MedicalProjectChoDlg::setData(ResultProvider * provider) {
 BEGIN_MESSAGE_MAP(MedicalProjectChoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_CH_DLG_BUC, &MedicalProjectChoDlg::OnBnClickedChDlgBuc)
 	ON_BN_CLICKED(IDC_CH_DLG_BUE, &MedicalProjectChoDlg::OnBnClickedChDlgBue)
+	ON_WM_ERASEBKGND()
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -70,4 +74,26 @@ void MedicalProjectChoDlg::OnBnClickedChDlgBue()
 	dlg.setData(provider);
 	this->OnOK();
 	dlg.DoModal();
+}
+
+
+BOOL MedicalProjectChoDlg::OnEraseBkgnd(CDC* pDC)
+{
+	CBrush back(RGB(255, 255, 228));
+	CBrush * pold = pDC->SelectObject(&back);
+	CRect rect;
+	pDC->GetClipBox(&rect);
+	pDC->PatBlt(rect.left, rect.top, rect.Width(), rect.Height(), PATCOPY);
+	pDC->SelectObject(&pold);
+	return TRUE;
+}
+
+
+HBRUSH MedicalProjectChoDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	pDC->SetBkMode(TRANSPARENT);
+	pDC->SetBkColor(RGB(0, 0, 0));
+	return CreateSolidBrush(RGB(255, 255, 228));
 }

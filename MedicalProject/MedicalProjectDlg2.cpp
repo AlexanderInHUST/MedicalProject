@@ -28,6 +28,8 @@ MedicalProjectDlg2::~MedicalProjectDlg2() {
 BOOL MedicalProjectDlg2::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
+	ModifyStyleEx(0, WS_EX_APPWINDOW);
+	ShowWindow(SW_SHOW);
 	
 	GETB2(7, 1); GETB2(7, 2); GETB2(7, 3); GETB2(7, 4); GETB2(7, 5);
 	GETB2(8, 1); GETB2(8, 2); GETB2(8, 3); GETB2(8, 4); GETB2(8, 5);
@@ -56,6 +58,8 @@ void MedicalProjectDlg2::setData(vector<vector<int> *> * answersList, vector<int
 BEGIN_MESSAGE_MAP(MedicalProjectDlg2, CDialogEx)
 	ON_BN_CLICKED(IDC_MA2_NEX_BUT, &MedicalProjectDlg2::OnBnClickedMa2NexBut)
 	ON_BN_CLICKED(IDC_MA2_PRE_BUT, &MedicalProjectDlg2::OnBnClickedMa2PreBut)
+	ON_WM_ERASEBKGND()
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -116,4 +120,25 @@ void MedicalProjectDlg2::OnBnClickedMa2PreBut()
 	this->OnOK();
 	dlg.setData(answersList, a61List, a62List, a63List);
 	dlg.DoModal();
+}
+
+BOOL MedicalProjectDlg2::OnEraseBkgnd(CDC* pDC)
+{
+	CBrush back(RGB(255, 255, 228));
+	CBrush * pold = pDC->SelectObject(&back);
+	CRect rect;
+	pDC->GetClipBox(&rect);
+	pDC->PatBlt(rect.left, rect.top, rect.Width(), rect.Height(), PATCOPY);
+	pDC->SelectObject(&pold);
+	return TRUE;
+}
+
+
+HBRUSH MedicalProjectDlg2::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	pDC->SetBkMode(TRANSPARENT);
+	pDC->SetBkColor(RGB(0, 0, 0));
+	return CreateSolidBrush(RGB(255, 255, 228));
 }

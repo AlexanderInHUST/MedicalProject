@@ -73,6 +73,8 @@ BEGIN_MESSAGE_MAP(CMedicalProjectDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_MA_P2_C2, &CMedicalProjectDlg::OnBnClickedMaP2C2)
 	ON_BN_CLICKED(IDC_MA_P2_C3, &CMedicalProjectDlg::OnBnClickedMaP2C3)
 	ON_BN_CLICKED(IDC_MA_NEX_BUT, &CMedicalProjectDlg::OnBnClickedMaNexBut)
+	ON_WM_ERASEBKGND()
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -350,4 +352,25 @@ void CMedicalProjectDlg::recheckStatus() {
 	if (GETBC(2, 3) == 1) {
 		OnBnClickedMaP2C3();
 	}
+}
+
+BOOL CMedicalProjectDlg::OnEraseBkgnd(CDC* pDC)
+{
+	CBrush back(RGB(255, 255, 228));
+	CBrush * pold = pDC->SelectObject(&back);
+	CRect rect;
+	pDC->GetClipBox(&rect);
+	pDC->PatBlt(rect.left, rect.top, rect.Width(), rect.Height(), PATCOPY);
+	pDC->SelectObject(&pold);
+	return TRUE;
+}
+
+
+HBRUSH CMedicalProjectDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	pDC->SetBkMode(TRANSPARENT);
+	pDC->SetBkColor(RGB(0, 0, 0));
+	return CreateSolidBrush(RGB(255, 255, 228));
 }

@@ -61,4 +61,6 @@ public:
 	void setData(vector<vector<int> *> * answersList, vector<int> * a61List, vector<int> * a62List, vector<int> * a63List);
 	void locateData();
 	void recheckStatus();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

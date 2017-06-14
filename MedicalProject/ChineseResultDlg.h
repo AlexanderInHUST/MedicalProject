@@ -41,6 +41,8 @@ protected:
 	CListCtrl * leftList;
 	CListCtrl * rightList;
 
+	CBrush * backBrush;
+
 	ResultProvider * provider;
 
 	DECLARE_MESSAGE_MAP()
@@ -50,4 +52,5 @@ public:
 	void setData(ResultProvider * provider);
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	afx_msg void OnBnClickedChiExitBut();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };

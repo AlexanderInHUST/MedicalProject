@@ -36,4 +36,6 @@ protected:
 public:
 	afx_msg void OnBnClickedChDlgBuc();
 	afx_msg void OnBnClickedChDlgBue();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

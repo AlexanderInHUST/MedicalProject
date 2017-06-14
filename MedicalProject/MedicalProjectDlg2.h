@@ -49,4 +49,6 @@ public:
 	afx_msg void OnBnClickedMa2PreBut();
 	afx_msg void OnBnClickedMa7P7C2();
 	afx_msg void OnBnClickedMa7P9C3();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

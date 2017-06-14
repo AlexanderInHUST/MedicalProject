@@ -28,6 +28,8 @@ void ChineseResultDlg::DoDataExchange(CDataExchange* pDX)
 
 BOOL ChineseResultDlg::OnInitDialog() {
 	CDialogEx::OnInitDialog();
+	ModifyStyleEx(0, WS_EX_APPWINDOW);
+	ShowWindow(SW_SHOW);
 
 	left = (CStatic *)GetDlgItem(IDC_CHI_STA_LEFT);
 	right = (CStatic *)GetDlgItem(IDC_CHI_STA_RIGH);
@@ -57,6 +59,7 @@ BEGIN_MESSAGE_MAP(ChineseResultDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_CHI_BAK_BUT, &ChineseResultDlg::OnBnClickedChiBakBut)
 	ON_WM_CTLCOLOR()
 	ON_BN_CLICKED(IDC_CHI_EXIT_BUT, &ChineseResultDlg::OnBnClickedChiExitBut)
+	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 
@@ -64,14 +67,6 @@ END_MESSAGE_MAP()
 
 void ChineseResultDlg::setData(ResultProvider * provider) {
 	this->provider = provider;
-}
-
-
-HBRUSH ChineseResultDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
-{
-	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
-
-	return hbr;
 }
 
 void ChineseResultDlg::deployAll() {
@@ -237,4 +232,25 @@ void ChineseResultDlg::OnBnClickedChiBakBut()
 	dlg.setData(provider);
 	this->OnOK();
 	dlg.DoModal();
+}
+
+BOOL ChineseResultDlg::OnEraseBkgnd(CDC* pDC)
+{
+	CBrush back(RGB(255, 255, 228));
+	CBrush * pold = pDC->SelectObject(&back);
+	CRect rect;
+	pDC->GetClipBox(&rect);
+	pDC->PatBlt(rect.left, rect.top, rect.Width(), rect.Height(), PATCOPY);
+	pDC->SelectObject(&pold);
+	return TRUE;
+}
+
+
+HBRUSH ChineseResultDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	pDC->SetBkMode(TRANSPARENT);
+	pDC->SetBkColor(RGB(0, 0, 0));
+	return CreateSolidBrush(RGB(255, 255, 228));
 }
