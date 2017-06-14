@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Result.h"
+#include "ResultProvider.h"
 
 // ChineseResultDlg 对话框
 
@@ -18,11 +18,33 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 	virtual BOOL OnInitDialog();
+	void deployAll();
+	void deployLeftList();
+	void deployRightList();
+	void deployConclusion();
+	vector<ResultPair *> * getRootReason();
+	wstring getSolution(wstring * kind);
 
-	Result * result;
+	CStatic * left;
+	CStatic * right;
+	CStatic * conclusion;
+
+	CFont kaiTiFont1;
+	CFont kaiTiFont2;
+
+	CButton * backBut;
+	CButton * endBut;
+
+	CListCtrl * leftList;
+	CListCtrl * rightList;
+
+	ResultProvider * provider;
 
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedChiBakBut();
 	afx_msg void OnEnChangeChiLefText();
+	void setData(ResultProvider * provider);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnBnClickedChiExitBut();
 };

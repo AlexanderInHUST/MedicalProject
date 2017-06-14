@@ -3,6 +3,8 @@
 #include "stdafx.h"
 #include "ResultProvider.h"
 #include "FileHelper.h"
+#include "ChineseResultDlg.h"
+#include "EnglishResultDlg.h"
 
 // MedicalProjectChoDlg ¶Ô»°¿ò
 

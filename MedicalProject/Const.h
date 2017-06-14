@@ -17,4 +17,13 @@
 
 #define SETAS(a, b) aList->push_back((GETBC(a, b)))
 
+#define SOLUTION_CHI_1 L"解肌发表、舒经活络"
+#define SOLUTION_CHI_2 L"祛风散寒、通经止痛"
+#define SOLUTION_CHI_3 L"燥湿化痰、通经止痛"
+#define SOLUTION_CHI_4 L"疏肝理气解郁"
+#define SOLUTION_CHI_5 L"补气养血通经"
+#define SOLUTION_CHI_6 L"养肝益肾"
+#define SOLUTION_CHI_7 L"补肾壮阳"
+
+#define EPS 0.00001
 #define FILE_NAME "temp.data"

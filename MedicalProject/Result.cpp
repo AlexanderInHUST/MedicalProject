@@ -2,10 +2,11 @@
 #include "Result.h"
 
 bool sortFunction(const ResultPair * v1, const ResultPair * v2) {
-	return v1->value < v2->value;
+	return v1->value > v2->value;
 }
 
 void Result::setResultChi(vector<float> * chiList) {
+	float amount1 = 0, amount2 = 0;
 	resultChi = new vector<ResultPair *>;
 	wstring names[7] = { L"太阳经输不利", L"风寒痹阻", L"痰湿阻络", L"肝气郁结", L"气血亏虚", L"肝肾不足", L"肾阳虚" };
 	for (int i = 0; i < 7; i++) {
@@ -13,6 +14,10 @@ void Result::setResultChi(vector<float> * chiList) {
 		newOne->kind = new wstring(names[i]);
 		newOne->value = chiList->at(i);
 		resultChi->push_back(newOne);
+		amount1 += newOne->value;
+	}
+	for (int i = 0; i < 7; i++) {
+		resultChi->at(i)->pecent1 = resultChi->at(i)->value / amount1;
 	}
 	sortResultChi();
 }
