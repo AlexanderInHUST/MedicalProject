@@ -25,7 +25,7 @@ protected:
 	DEFB(8, 1); DEFB(8, 2); DEFB(8, 3); DEFB(8, 4); DEFB(8, 5);
 	DEFB(9, 1); DEFB(9, 2); DEFB(9, 3); DEFB(9, 4); DEFB(9, 5); DEFB(9, 6);
 	DEFB(10, 1); DEFB(10, 2); DEFB(10, 3);
-	DEFB(11, 1); DEFB(11, 2); DEFB(11, 3); DEFB(11, 4); DEFB(11, 5); DEFB(11, 6);
+	DEFB(11, 1); DEFB(11, 2); DEFB(11, 3); DEFB(11, 4); DEFB(11, 5); DEFB(11, 6); DEFB(11, 7);
 	DEFB(12, 1); DEFB(12, 2); DEFB(12, 3); DEFB(12, 4);
 	DEFB(13, 1); DEFB(13, 2); DEFB(13, 3); DEFB(13, 4);
 	DEFB(14, 1); DEFB(14, 2); DEFB(14, 3);

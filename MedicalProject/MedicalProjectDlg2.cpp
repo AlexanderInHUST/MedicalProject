@@ -5,6 +5,7 @@
 #include "MedicalProject.h"
 #include "MedicalProjectDlg2.h"
 #include "afxdialogex.h"
+#include "MedicalProjectChoDlg.h"
 
 
 // MedicalProjectDlg2 ¶Ô»°¿ò
@@ -18,8 +19,6 @@ MedicalProjectDlg2::MedicalProjectDlg2(CWnd* pParent /*=NULL*/)
 	this->a61List = NULL;
 	this->a62List = NULL;
 	this->a63List = NULL;
-
-
 }
 
 MedicalProjectDlg2::~MedicalProjectDlg2() {
@@ -34,7 +33,7 @@ BOOL MedicalProjectDlg2::OnInitDialog()
 	GETB2(8, 1); GETB2(8, 2); GETB2(8, 3); GETB2(8, 4); GETB2(8, 5);
 	GETB2(9, 1); GETB2(9, 2); GETB2(9, 3); GETB2(9, 4); GETB2(9, 5); GETB2(9, 6);
 	GETB2(10, 1); GETB2(10, 2); GETB2(10, 3);
-	GETB2(11, 1); GETB2(11, 2); GETB2(11, 3); GETB2(11, 4); GETB2(11, 5); GETB2(11, 6);
+	GETB2(11, 1); GETB2(11, 2); GETB2(11, 3); GETB2(11, 4); GETB2(11, 5); GETB2(11, 6); GETB2(11, 7);
 	GETB2(12, 1); GETB2(12, 2); GETB2(12, 3); GETB2(12, 4);
 	GETB2(13, 1); GETB2(13, 2); GETB2(13, 3); GETB2(13, 4);
 	GETB2(14, 1); GETB2(14, 2); GETB2(14, 3);
@@ -81,7 +80,7 @@ void MedicalProjectDlg2::OnBnClickedMa2NexBut()
 	answersList->push_back(aList);
 
 	aList = new vector<int>;
-	SETAS(11, 1); SETAS(11, 2); SETAS(11, 3); SETAS(11, 4); SETAS(11, 5); SETAS(11, 6);
+	SETAS(11, 1); SETAS(11, 2); SETAS(11, 3); SETAS(11, 4); SETAS(11, 5); SETAS(11, 6); SETAS(11, 7);
 	answersList->push_back(aList);
 
 	aList = new vector<int>;
@@ -99,9 +98,15 @@ void MedicalProjectDlg2::OnBnClickedMa2NexBut()
 	aList = new vector<int>;
 	SETAS(15, 1); SETAS(15, 2); SETAS(15, 3); SETAS(15, 4);
 	answersList->push_back(aList);
+
 	answersList->push_back(a61List);
 	answersList->push_back(a62List);
 	answersList->push_back(a63List);
+
+	MedicalProjectChoDlg nextDlg;
+	nextDlg.setData(answersList);
+	this->OnOK();
+	nextDlg.DoModal();
 }
 
 

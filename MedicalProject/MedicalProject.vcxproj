@@ -107,6 +107,7 @@
     <ClInclude Include="EnglishResultDlg.h" />
     <ClInclude Include="FileHelper.h" />
     <ClInclude Include="MedicalProject.h" />
+    <ClInclude Include="MedicalProjectChoDlg.h" />
     <ClInclude Include="MedicalProjectDlg.h" />
     <ClInclude Include="MedicalProjectDlg2.h" />
     <ClInclude Include="Resource.h" />
@@ -122,6 +123,7 @@
     <ClCompile Include="EnglishResultDlg.cpp" />
     <ClCompile Include="FileHelper.cpp" />
     <ClCompile Include="MedicalProject.cpp" />
+    <ClCompile Include="MedicalProjectChoDlg.cpp" />
     <ClCompile Include="MedicalProjectDlg.cpp" />
     <ClCompile Include="MedicalProjectDlg2.cpp" />
     <ClCompile Include="Result.cpp" />

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Result.h"
 
 // ChineseResultDlg 对话框
 
@@ -16,6 +17,12 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
+	virtual BOOL OnInitDialog();
+
+	Result * result;
 
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedChiBakBut();
+	afx_msg void OnEnChangeChiLefText();
 };

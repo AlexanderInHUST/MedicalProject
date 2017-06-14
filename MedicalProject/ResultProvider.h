@@ -6,6 +6,10 @@
 
 class ResultProvider{
 protected:
-	Answers answer;
-	Result result;
+	Answers * answer;
+	Result * result;
+
+public:
+	void calResult(vector<vector<int> *> * answersList, vector<vector<float> *> * weightList);
+	Result * getResult();
 };

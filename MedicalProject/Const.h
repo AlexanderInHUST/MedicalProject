@@ -16,3 +16,5 @@
 #define SETBCF(a, b) SETBC(a, b, (answersList->at(a - 1)->at(b - 1) == 1) ? true : false)
 
 #define SETAS(a, b) aList->push_back((GETBC(a, b)))
+
+#define FILE_NAME "temp.data"

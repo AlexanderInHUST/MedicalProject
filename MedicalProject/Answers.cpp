@@ -44,10 +44,10 @@ void Answers::calculateAnswers() {
 	//·çº®±Ô×è
 	result = ASW(6, 1, 1, 0);
 	result += ASW(6, 2, 1, 1);
-	result += ASW(11, 3, 1, 3);
-	result += ASW(13, 1, 1, 4);
-	result += ASW(13, 2, 1, 5);
-	result += (AS(14, 1) | AS(14, 3)) * AW(1, 6);
+	result += ASW(11, 3, 1, 2);
+	result += ASW(13, 1, 1, 3);
+	result += ASW(13, 2, 1, 4);
+	result += (AS(14, 1) | AS(14, 3)) * AW(1, 5);
 	resultChi->push_back(result);
 	//ÌµÊª×èÂç
 	result = ASW(6, 1, 2, 0);

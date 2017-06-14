@@ -15,5 +15,6 @@ vector<vector<float> *> * FileHelper::getWeight(string fileName) {
 		weight->push_back(newOne);
 		fscanf(file, "\n");
 	}
+	fclose(file);
 	return weight;
 }

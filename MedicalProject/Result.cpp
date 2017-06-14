@@ -26,7 +26,7 @@ void Result::sortResultChi() {
 void Result::setResultEng(vector<float> * engList) {
 	resultEng = new vector<ResultPair *>;
 	wstring names[6] = { L"颈型", L"神经根型", L"脊髓型", L"交感神经型", L"椎动脉型", L"食管压迫型" };
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < 6; i++) {
 		ResultPair * newOne = new ResultPair;
 		newOne->kind = new wstring(names[i]);
 		newOne->value = engList->at(i);
