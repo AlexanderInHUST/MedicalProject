@@ -38,6 +38,11 @@ void MedicalProjectChoDlg::setData(vector<vector<int> *> * answersList) {
 	calculateResult();
 }
 
+void MedicalProjectChoDlg::setData(ResultProvider * provider) {
+	this->provider = provider;
+}
+
+
 BEGIN_MESSAGE_MAP(MedicalProjectChoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_CH_DLG_BUC, &MedicalProjectChoDlg::OnBnClickedChDlgBuc)
 	ON_BN_CLICKED(IDC_CH_DLG_BUE, &MedicalProjectChoDlg::OnBnClickedChDlgBue)
@@ -61,5 +66,8 @@ void MedicalProjectChoDlg::OnBnClickedChDlgBuc()
 
 void MedicalProjectChoDlg::OnBnClickedChDlgBue()
 {
-	// TODO:  在此添加控件通知处理程序代码
+	EnglishResultDlg dlg;
+	dlg.setData(provider);
+	this->OnOK();
+	dlg.DoModal();
 }

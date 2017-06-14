@@ -1,8 +1,11 @@
 #pragma once
 
 #include "ResultProvider.h"
+#include "MedicalProjectChoDlg.h"
 
 // ChineseResultDlg ¶Ô»°¿ò
+
+class MedicalProjectChoDlg;
 
 class ChineseResultDlg : public CDialogEx
 {

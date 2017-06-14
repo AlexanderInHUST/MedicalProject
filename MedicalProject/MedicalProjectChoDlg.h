@@ -17,6 +17,7 @@ public:
 	virtual ~MedicalProjectChoDlg();
 	
 	void setData(vector<vector<int> *> * answersList);
+	void setData(ResultProvider * provider);
 
 // 对话框数据
 	enum { IDD = IDD_CHOS_DLG };

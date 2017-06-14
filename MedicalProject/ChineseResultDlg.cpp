@@ -84,12 +84,12 @@ void ChineseResultDlg::deployLeftList() {
 	LVCOLUMN vc1;
 	vc1.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_SUBITEM;
 	vc1.pszText = L"病机";
-	vc1.cx = 100;
+	vc1.cx = 120;
 	vc1.iSubItem = 0;
 	leftList->InsertColumn(0, &vc1);
 
 	vc1.pszText = L"占比";
-	vc1.cx = 80;
+	vc1.cx = 60;
 	vc1.iSubItem = 1;
 	leftList->InsertColumn(1, &vc1);
 
@@ -118,12 +118,12 @@ void ChineseResultDlg::deployRightList() {
 	LVCOLUMN vc1;
 	vc1.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_SUBITEM;
 	vc1.pszText = L"病机";
-	vc1.cx = 100;
+	vc1.cx = 120;
 	vc1.iSubItem = 0;
 	rightList->InsertColumn(0, &vc1);
 
 	vc1.pszText = L"占比";
-	vc1.cx = 80;
+	vc1.cx = 60;
 	vc1.iSubItem = 1;
 	rightList->InsertColumn(1, &vc1);
 
@@ -223,14 +223,18 @@ wstring ChineseResultDlg::getSolution(wstring * kind) {
 	else if (kind->compare(L"肾阳虚")) {
 		return SOLUTION_CHI_7;
 	}
+	return L"无";
 }
 
 void ChineseResultDlg::OnBnClickedChiExitBut()
 {
-	this->OnOK;
+	this->OnOK();
 }
 
 void ChineseResultDlg::OnBnClickedChiBakBut()
 {
-	// TODO:  在此添加控件通知处理程序代码
+	MedicalProjectChoDlg dlg;
+	dlg.setData(provider);
+	this->OnOK();
+	dlg.DoModal();
 }

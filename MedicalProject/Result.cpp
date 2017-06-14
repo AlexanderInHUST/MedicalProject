@@ -6,7 +6,7 @@ bool sortFunction(const ResultPair * v1, const ResultPair * v2) {
 }
 
 void Result::setResultChi(vector<float> * chiList) {
-	float amount1 = 0, amount2 = 0;
+	float amount1 = 0;
 	resultChi = new vector<ResultPair *>;
 	wstring names[7] = { L"太阳经输不利", L"风寒痹阻", L"痰湿阻络", L"肝气郁结", L"气血亏虚", L"肝肾不足", L"肾阳虚" };
 	for (int i = 0; i < 7; i++) {
@@ -29,6 +29,7 @@ void Result::sortResultChi() {
 }
 
 void Result::setResultEng(vector<float> * engList) {
+	float amount1 = 0;
 	resultEng = new vector<ResultPair *>;
 	wstring names[6] = { L"颈型", L"神经根型", L"脊髓型", L"交感神经型", L"椎动脉型", L"食管压迫型" };
 	for (int i = 0; i < 6; i++) {
@@ -36,7 +37,12 @@ void Result::setResultEng(vector<float> * engList) {
 		newOne->kind = new wstring(names[i]);
 		newOne->value = engList->at(i);
 		resultEng->push_back(newOne);
+		amount1 += newOne->value;
 	}
+	for (int i = 0; i < 6; i++) {
+		resultEng->at(i)->pecent1 = resultEng->at(i)->value / amount1;
+	}
+	sortResultEng();
 }
 
 void Result::sortResultEng() {

@@ -1,7 +1,10 @@
 #pragma once
 
-
+#include "ResultProvider.h"
+#include "MedicalProjectChoDlg.h"
 // EnglishResultDlg 对话框
+
+class MedicalProjectChoDlg;
 
 class EnglishResultDlg : public CDialogEx
 {
@@ -16,8 +19,33 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
+	virtual BOOL OnInitDialog();
+	void deployAll();
+	void deployLeftList();
+	void deployRightList();
+	void deployConclusion();
+	vector<ResultPair *> * getRootReason();
+	wstring getSolution(wstring * kind);
+
+	CStatic * left;
+	CStatic * right;
+	CStatic * conclusion;
+
+	CFont kaiTiFont1;
+	CFont kaiTiFont2;
+
+	CButton * backBut;
+	CButton * endBut;
+
+	CListCtrl * leftList;
+	CListCtrl * rightList;
+
+	ResultProvider * provider;
 
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnEnChangeEngLefText();
+	void setData(ResultProvider * provider);
+	afx_msg void OnBnClickedEngBakBut();
+	afx_msg void OnBnClickedEngExitBut();
 };
