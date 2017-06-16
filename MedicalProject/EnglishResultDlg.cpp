@@ -107,14 +107,9 @@ void EnglishResultDlg::deployRightList() {
 	rightList->InsertColumn(0, &vc1);
 
 	vc1.pszText = L" ";
-	vc1.cx = 60;
+	vc1.cx = 55;
 	vc1.iSubItem = 1;
 	rightList->InsertColumn(1, &vc1);
-
-	vc1.pszText = L" ";
-	vc1.cx = 55;
-	vc1.iSubItem = 2;
-	rightList->InsertColumn(2, &vc1);
 
 	LVITEM vitem;
 	vitem.mask = LVIF_TEXT;
@@ -122,7 +117,7 @@ void EnglishResultDlg::deployRightList() {
 
 	for (auto rep : *getRootReason()) {
 		rightList->InsertItem(count, const_cast<LPWSTR> (rep->kind->c_str()));
-		rightList->SetItemText(count, 2, L"ÏêÇé");
+		rightList->SetItemText(count, 1, L"ÏêÇé");
 		count++;
 	}
 }

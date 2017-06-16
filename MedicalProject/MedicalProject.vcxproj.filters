@@ -45,18 +45,6 @@
     <ClInclude Include="MedicalProject.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MedicalProjectDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Answers.h">
       <Filter>头文件\data</Filter>
     </ClInclude>
@@ -72,30 +60,36 @@
     <ClInclude Include="ResultPair.h">
       <Filter>头文件\data</Filter>
     </ClInclude>
-    <ClInclude Include="ChineseResultDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="EnglishResultDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="MedicalProjectDlg2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="ResultProvider.h">
       <Filter>头文件\presenter</Filter>
     </ClInclude>
+    <ClInclude Include="ChineseResultDlg.h">
+      <Filter>头文件\view</Filter>
+    </ClInclude>
+    <ClInclude Include="EnglishResultDlg.h">
+      <Filter>头文件\view</Filter>
+    </ClInclude>
     <ClInclude Include="MedicalProjectChoDlg.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\view</Filter>
+    </ClInclude>
+    <ClInclude Include="MedicalProjectDlg.h">
+      <Filter>头文件\view</Filter>
+    </ClInclude>
+    <ClInclude Include="MedicalProjectDlg2.h">
+      <Filter>头文件\view</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件\global</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件\global</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件\global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MedicalProject.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MedicalProjectDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Answers.cpp">
@@ -107,20 +101,26 @@
     <ClCompile Include="Result.cpp">
       <Filter>源文件\data</Filter>
     </ClCompile>
-    <ClCompile Include="ChineseResultDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="EnglishResultDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MedicalProjectDlg2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="ResultProvider.cpp">
       <Filter>源文件\presenter</Filter>
     </ClCompile>
+    <ClCompile Include="EnglishResultDlg.cpp">
+      <Filter>源文件\view</Filter>
+    </ClCompile>
+    <ClCompile Include="ChineseResultDlg.cpp">
+      <Filter>源文件\view</Filter>
+    </ClCompile>
     <ClCompile Include="MedicalProjectChoDlg.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\view</Filter>
+    </ClCompile>
+    <ClCompile Include="MedicalProjectDlg.cpp">
+      <Filter>源文件\view</Filter>
+    </ClCompile>
+    <ClCompile Include="MedicalProjectDlg2.cpp">
+      <Filter>源文件\view</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件\global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
