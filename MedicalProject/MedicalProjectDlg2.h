@@ -15,6 +15,7 @@ public:
 	MedicalProjectDlg2(CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~MedicalProjectDlg2();
 	void setData(vector<vector<int> *> * answersList, vector<int> * a61List, vector<int> * a62List, vector<int> * a63List);
+	void setData(vector<vector<int> *> * answersList);
 
 // 对话框数据
 	enum { IDD = IDD_MEDICALPROJECT2_DIALOG };
@@ -33,10 +34,12 @@ protected:
 
 	Answers answer;
 	vector<vector<int> *> * answersList;
+	vector<vector<int> *> * answersList2;
 	vector<int> * a61List;
 	vector<int> * a62List;
 	vector<int> * a63List;
 	CMedicalProjectDlg * preDlg;
+	bool isBack;
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 	virtual BOOL OnInitDialog();
 

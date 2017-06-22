@@ -19,6 +19,7 @@ MedicalProjectDlg2::MedicalProjectDlg2(CWnd* pParent /*=NULL*/)
 	this->a61List = NULL;
 	this->a62List = NULL;
 	this->a63List = NULL;
+	isBack = false;
 }
 
 MedicalProjectDlg2::~MedicalProjectDlg2() {
@@ -40,6 +41,18 @@ BOOL MedicalProjectDlg2::OnInitDialog()
 	GETB2(13, 1); GETB2(13, 2); GETB2(13, 3); GETB2(13, 4);
 	GETB2(14, 1); GETB2(14, 2); GETB2(14, 3);
 	GETB2(15, 1); GETB2(15, 2); GETB2(15, 3); GETB2(15, 4);
+
+	if (isBack) {
+		SETBCF2(7, 1); SETBCF2(7, 2); SETBCF2(7, 3); SETBCF2(7, 4); SETBCF2(7, 5);
+		SETBCF2(8, 1); SETBCF2(8, 2); SETBCF2(8, 3); SETBCF2(8, 4); SETBCF2(8, 5);
+		SETBCF2(9, 1); SETBCF2(9, 2); SETBCF2(9, 3); SETBCF2(9, 4); SETBCF2(9, 5); SETBCF2(9, 6);
+		SETBCF2(10, 1); SETBCF2(10, 2); SETBCF2(10, 3);
+		SETBCF2(11, 1); SETBCF2(11, 2); SETBCF2(11, 3); SETBCF2(11, 4); SETBCF2(11, 5); SETBCF2(11, 6); SETBCF2(11, 7);
+		SETBCF2(12, 1); SETBCF2(12, 2); SETBCF2(12, 3); SETBCF2(12, 4);
+		SETBCF2(13, 1); SETBCF2(13, 2); SETBCF2(13, 3); SETBCF2(13, 4);
+		SETBCF2(14, 1); SETBCF2(14, 2); SETBCF2(14, 3);
+		SETBCF2(15, 1); SETBCF2(15, 2); SETBCF2(15, 3); SETBCF2(15, 4);
+	}
 	return TRUE;
 }
 
@@ -52,6 +65,22 @@ void MedicalProjectDlg2::setData(vector<vector<int> *> * answersList, vector<int
 	this->a61List = a61List;
 	this->a62List = a62List;
 	this->a63List = a63List;
+}
+
+void MedicalProjectDlg2::setData(vector<vector<int> *> * answersList) {
+	this->answersList = new vector<vector<int> *>;
+	int count = 0;
+	for (auto ans : *answersList) {
+		this->answersList->push_back(ans);
+		count++;
+		if (count == 5)
+			break;
+	}
+	this->a61List = answersList->at(14);
+	this->a62List = answersList->at(15);
+	this->a63List = answersList->at(16);
+	this->answersList2 = answersList;
+	isBack = true;
 }
 
 

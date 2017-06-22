@@ -68,17 +68,17 @@ void EnglishResultDlg::deployLeftList() {
 	LVCOLUMN vc1;
 	vc1.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_SUBITEM;
 	vc1.pszText = L"病机";
-	vc1.cx = 120;
+	vc1.cx = 85;
 	vc1.iSubItem = 0;
 	leftList->InsertColumn(0, &vc1);
 
 	vc1.pszText = L"占比";
-	vc1.cx = 60;
+	vc1.cx = 55;
 	vc1.iSubItem = 1;
 	leftList->InsertColumn(1, &vc1);
 
 	vc1.pszText = L" ";
-	vc1.cx = 55;
+	vc1.cx = 40;
 	vc1.iSubItem = 2;
 	leftList->InsertColumn(2, &vc1);
 
@@ -89,7 +89,7 @@ void EnglishResultDlg::deployLeftList() {
 	for (auto rep : *(provider->getResult()->getSortedResultEng())) {
 		if (rep->pecent1 >= EPS) {
 			TCHAR sz[10];
-			_stprintf(sz, _T("%.2f"), rep->pecent1);
+			_stprintf(sz, _T("%d%%"), (int)(rep->pecent1 * 100));
 			leftList->InsertItem(count, const_cast<LPWSTR> (rep->kind->c_str()));
 			leftList->SetItemText(count, 1, const_cast<LPWSTR> (sz));
 			leftList->SetItemText(count, 2, L"详情");
@@ -102,12 +102,12 @@ void EnglishResultDlg::deployRightList() {
 	LVCOLUMN vc1;
 	vc1.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_SUBITEM;
 	vc1.pszText = L"病机";
-	vc1.cx = 120;
+	vc1.cx = 85;
 	vc1.iSubItem = 0;
 	rightList->InsertColumn(0, &vc1);
 
 	vc1.pszText = L" ";
-	vc1.cx = 55;
+	vc1.cx = 40;
 	vc1.iSubItem = 1;
 	rightList->InsertColumn(1, &vc1);
 
@@ -138,6 +138,9 @@ void EnglishResultDlg::deployConclusion() {
 	con2 = L"，未考虑外伤病因，所属骨科/颈椎专科。\n\n（本结果仅做参考，不具诊疗意义）";
 	wstring result;
 	result = con1;
+	FileHelper helper;
+	float value = helper.getWeight("med.data")->at(8)->at(1);
+
 	if (getRootReason()->size() < 2) {
 		con3 = L"病情复杂";
 		con4 = L"，建议去医院做相应检查";
@@ -146,7 +149,7 @@ void EnglishResultDlg::deployConclusion() {
 		con3 = L"病情相对简单";
 		con4 = L"，请留心观察";
 	}
-	if (provider->getResult()->getSortedResultEng()->at(0)->pecent1 >= 0.4) {
+	if (provider->getResult()->getSortedResultEng()->at(0)->pecent1 >= value) {
 		result = result + con3 + L"、病状明显" + con4 + L"，及时治疗";
 	}
 	else {

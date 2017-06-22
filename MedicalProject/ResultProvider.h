@@ -12,4 +12,5 @@ protected:
 public:
 	void calResult(vector<vector<int> *> * answersList, vector<vector<float> *> * weightList);
 	Result * getResult();
+	Answers * getAnswer();
 };

@@ -14,6 +14,7 @@
 #define SETBC(a, b, result) map##a##c##b##->SetCheck(result)
 #define GETBC(a, b) map##a##c##b##->GetCheck()
 #define SETBCF(a, b) SETBC(a, b, (answersList->at(a - 1)->at(b - 1) == 1) ? true : false)
+#define SETBCF2(a, b) SETBC(a, b, (answersList2->at(a - 2)->at(b - 1) == 1) ? true : false)
 
 #define SETAS(a, b) aList->push_back((GETBC(a, b)))
 
@@ -26,4 +27,4 @@
 #define SOLUTION_CHI_7 L"²¹Éö×³Ñô"
 
 #define EPS 0.00001
-#define FILE_NAME "temp.data"
+#define FILE_NAME "med.data"

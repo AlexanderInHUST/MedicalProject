@@ -30,6 +30,13 @@ BOOL MedicalProjectChoDlg::OnInitDialog() {
 	CDialogEx::OnInitDialog();
 	ModifyStyleEx(0, WS_EX_APPWINDOW);
 	ShowWindow(SW_SHOW);
+
+	songtiFont.CreatePointFont(100, L"¿¬Ìå");
+
+	backBotton = (CButton *)GetDlgItem(IDC_CH_BAK);
+
+	backBotton->SetFont(&songtiFont);
+
 	return TRUE;
 }
 
@@ -50,6 +57,7 @@ BEGIN_MESSAGE_MAP(MedicalProjectChoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_CH_DLG_BUE, &MedicalProjectChoDlg::OnBnClickedChDlgBue)
 	ON_WM_ERASEBKGND()
 	ON_WM_CTLCOLOR()
+	ON_BN_CLICKED(IDC_CH_BAK, &MedicalProjectChoDlg::OnBnClickedChBak)
 END_MESSAGE_MAP()
 
 
@@ -96,4 +104,13 @@ HBRUSH MedicalProjectChoDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	pDC->SetBkMode(TRANSPARENT);
 	pDC->SetBkColor(RGB(0, 0, 0));
 	return CreateSolidBrush(RGB(255, 255, 228));
+}
+
+
+void MedicalProjectChoDlg::OnBnClickedChBak()
+{
+	MedicalProjectDlg2 dlg;
+	dlg.setData(provider->getAnswer()->getAnswersList());
+	OnOK();
+	dlg.DoModal();
 }

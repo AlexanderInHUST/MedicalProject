@@ -14,3 +14,7 @@ void ResultProvider::calResult(vector<vector<int> *> * answersList, vector<vecto
 Result * ResultProvider::getResult() {
 	return result;
 }
+
+Answers * ResultProvider::getAnswer() {
+	return answer;
+}

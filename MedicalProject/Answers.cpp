@@ -17,6 +17,10 @@ vector<float> * Answers::getResultEng() {
 	return this->resultEng;
 }
 
+vector<vector<int> *> * Answers::getAnswersList() {
+	return this->answersList;
+}
+
 //太阳经输不利 = （题4A / B / C / D + 题5B / C）80%+（题7B）8%+（题9B）7%+（题11C）5%
 //风寒痹阻 = （题8B）55%+（题8C）15%+（题13D）10%+（题15B）10%+（题15C）5%+（题6.1B / D）10%
 //痰湿阻络 = （题8B）50%+（题8C）5%+（题11F）20%+（题9C）15%+（题13C）5%+（题15B / C）5%

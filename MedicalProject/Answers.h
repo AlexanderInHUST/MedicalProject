@@ -5,6 +5,8 @@
 
 using namespace std;
 
+class Result;
+
 class Answers {
 private:
 	vector<vector<int> *> * answersList;
@@ -19,4 +21,5 @@ public:
 	vector<float> * getResultChi();
 	vector<float> * getResultEng();
 	void calculateAnswers(void);
+	vector<vector<int> *> * getAnswersList();
 };

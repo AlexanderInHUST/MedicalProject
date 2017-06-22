@@ -5,8 +5,11 @@
 #include "FileHelper.h"
 #include "ChineseResultDlg.h"
 #include "EnglishResultDlg.h"
+#include "MedicalProjectDlg2.h"
 
 // MedicalProjectChoDlg 对话框
+
+class MedicalProjectDlg2;
 
 class MedicalProjectChoDlg : public CDialogEx
 {
@@ -26,6 +29,9 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 	virtual BOOL OnInitDialog();
 	
+	CFont songtiFont;
+	CButton * backBotton;
+
 	void calculateResult();
 
 	vector<vector<int> *> * answersList;
@@ -38,4 +44,5 @@ public:
 	afx_msg void OnBnClickedChDlgBue();
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnBnClickedChBak();
 };

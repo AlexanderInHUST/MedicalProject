@@ -79,17 +79,17 @@ void ChineseResultDlg::deployLeftList() {
 	LVCOLUMN vc1;
 	vc1.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_SUBITEM;
 	vc1.pszText = L"病机";
-	vc1.cx = 120;
+	vc1.cx = 85;
 	vc1.iSubItem = 0;
 	leftList->InsertColumn(0, &vc1);
 
 	vc1.pszText = L"占比";
-	vc1.cx = 60;
+	vc1.cx = 55;
 	vc1.iSubItem = 1;
 	leftList->InsertColumn(1, &vc1);
 
 	vc1.pszText = L" ";
-	vc1.cx = 55;
+	vc1.cx = 40;
 	vc1.iSubItem = 2;
 	leftList->InsertColumn(2, &vc1);
 
@@ -100,7 +100,7 @@ void ChineseResultDlg::deployLeftList() {
 	for (auto rep : *(provider->getResult()->getSortedResultChi())) {
 		if (rep->pecent1 >= EPS) {
 			TCHAR sz[10];
-			_stprintf(sz, _T("%.2f"), rep->pecent1);
+			_stprintf(sz, _T("%d%%"),  (int)((rep->pecent1 * 100)));
 			leftList->InsertItem(count, const_cast<LPWSTR> (rep->kind->c_str()));
 			leftList->SetItemText(count, 1, const_cast<LPWSTR> (sz));
 			leftList->SetItemText(count, 2, L"详情");
@@ -113,17 +113,17 @@ void ChineseResultDlg::deployRightList() {
 	LVCOLUMN vc1;
 	vc1.mask = LVCF_TEXT | LVCF_WIDTH | LVCF_SUBITEM;
 	vc1.pszText = L"病机";
-	vc1.cx = 120;
+	vc1.cx = 85;
 	vc1.iSubItem = 0;
 	rightList->InsertColumn(0, &vc1);
 
 	vc1.pszText = L"占比";
-	vc1.cx = 60;
+	vc1.cx = 55;
 	vc1.iSubItem = 1;
 	rightList->InsertColumn(1, &vc1);
 
 	vc1.pszText = L" ";
-	vc1.cx = 55;
+	vc1.cx = 40;
 	vc1.iSubItem = 2;
 	rightList->InsertColumn(2, &vc1);
 
@@ -131,10 +131,17 @@ void ChineseResultDlg::deployRightList() {
 	vitem.mask = LVIF_TEXT;
 	int count = 0;
 
-	for (auto rep : *getRootReason()) {
+	vector<ResultPair *> * rootList = getRootReason();
+	float tempAmount = 0;
+
+	for (auto rep : *rootList) {
+		tempAmount += rep->pecent1;
+	}
+
+	for (auto rep : *rootList) {
 		if (rep->pecent1 >= EPS) {
 			TCHAR sz[10];
-			_stprintf(sz, _T("%.2f"), rep->pecent1);
+			_stprintf(sz, _T("%d%%"), (int)((rep->pecent1 / tempAmount) * 100));
 			rightList->InsertItem(count, const_cast<LPWSTR> (rep->kind->c_str()));
 			rightList->SetItemText(count, 1, const_cast<LPWSTR> (sz));
 			rightList->SetItemText(count, 2, L"详情");
@@ -146,37 +153,45 @@ void ChineseResultDlg::deployRightList() {
 void ChineseResultDlg::deployConclusion() {
 	wstring con1, con2, con3, con4, con5;
 	con1 = L"您本次不适多因";
-	con2 = L"为主要证型，并有";
-	con3 = L"（等）为根本兼证。治法宜";
-	con4 = L"为主，考虑";
-	con5 = L"。\n（注：本结果仅做参考，不具诊疗意义）";
+	con2 = L"为主要证型";
+	con3 = L"。治法宜";
+	con4 = L"为主";
+	con5 = L"。\n\n（本结果仅做参考，不具诊疗意义）";
 	wstring result;
+
+	FileHelper helper;
+	vector<ResultPair *> * rootList = getRootReason();
+	float tempAmount = 0;
+	float value = helper.getWeight("med.data")->at(8)->at(0);
+
+	for (auto rep : *rootList) {
+		tempAmount += rep->pecent1;
+	}
+
 	result = con1;
 	result += *(provider->getResult()->getSortedResultChi()->at(0)->kind);
 	result += con2;
 	vector<ResultPair *> * root = getRootReason();
-	if (root->at(0)->pecent1 >= 0.6) {
+	if (root->at(0)->pecent1 / tempAmount >= value) {
+		result += L"，并有";
 		result += *(root->at(0)->kind);
-		if (root->at(1)->pecent1 >= 0.6) {
+		if (root->at(1)->pecent1 / tempAmount >= value) {
 			result += L"、";
 			result += *(root->at(1)->kind);
 		}
-	}
-	else {
-		result += L"无";
+		result += L"（等）为根本兼证";
 	}
 	result += con3;
 	result += getSolution((provider->getResult()->getSortedResultChi()->at(0)->kind));
 	result += con4;
-	if (root->at(0)->pecent1 >= 0.6) {
+
+	if (root->at(0)->pecent1 / tempAmount >= value) {
+		result += L"，考虑";
 		result += getSolution((root->at(0)->kind));
-		if (root->at(1)->pecent1 >= 0.6) {
+		if (root->at(1)->pecent1 / tempAmount >= value) {
 			result += L"、";
 			result += getSolution((root->at(1)->kind));
 		}
-	}
-	else {
-		result += L"无";
 	}
 	result += con5;
 	conclusion->SetWindowTextW(const_cast<LPWSTR> (result.c_str()));
